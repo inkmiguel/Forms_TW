@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Sender</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body class="bg-gradient-to-br from-blue-100 to-indigo-200 min-h-screen flex items-center justify-center">
+    <div class="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
+        <h1 class="text-3xl font-extrabold text-center text-red-600 mb-6">Welcome to the Email Sender</h1>
+        <form id="emailForm" class="space-y-6">
+            <div>
+                <label for="email" class="block text-gray-700 font-semibold mb-2">Introduce tu correo electrónico</label>
+                <input 
+                    type="email" 
+                    id="email" 
+                    class="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition" 
+                    placeholder="tuemail@gmail.com" 
+                    required
+                >
+            </div>
+            <button 
+                type="submit" 
+                class="w-full bg-green-600 hover:bg-green-950 text-white font-bold rounded-lg p-3 transition"
+            >
+                Send Email
+            </button>
+        </form>
+    </div>
+    <script src="./src/js/index.js"></script>
+</body>
+</html>
