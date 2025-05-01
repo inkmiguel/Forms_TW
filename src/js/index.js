@@ -1,3 +1,4 @@
+
 document.getElementById("emailForm").addEventListener("submit", async (e) => {
   e.preventDefault(); // Evita que el formulario se envíe automáticamente
 
@@ -5,7 +6,11 @@ document.getElementById("emailForm").addEventListener("submit", async (e) => {
 
   // Validar si los campos están vacíos
   if (!email) {
-    alert("Por favor, ingresa tu correo electrónico.");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Por favor, completa todos los campos.",
+    });
     return;
   }
 
@@ -28,9 +33,17 @@ document.getElementById("emailForm").addEventListener("submit", async (e) => {
     });
 
     const result = await response.text();
-    alert(result); // Mostrar el mensaje de éxito
+    Swal.fire({
+      icon: "success",
+      title: "Correo enviado",
+      text: result,
+    }); // Mostrar el mensaje de éxito
   } catch (error) {
-    alert("Error al enviar el correo. Intenta nuevamente.");
+    Swal.fire({
+      icon: "error",
+      title: "Error",
+      text: "Hubo un problema al enviar el correo.",
+    })
   } finally {
     button.disabled = false; // Habilitar el botón nuevamente
     button.textContent = "Send Email"; // Restaurar el texto del botón
