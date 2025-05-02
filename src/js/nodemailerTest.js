@@ -12,12 +12,14 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const sendEmail = async (to, subject, text) => {
+const sendEmail = async (to, subject, text, html) => {
   const mailOptions = {
-    from: userGmail,
+    from: `Miguel Angel Feria Padilla <${userGmail}>` ,
     to,
     subject,
     text,
+    html,
+    replyTo: userGmail,
   };
 
   return transporter.sendMail(mailOptions); // Esto devuelve una promesa

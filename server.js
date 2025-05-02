@@ -7,9 +7,14 @@ require("dotenv").config();
 const app = express();
 const port = 3000;
 
+const corsOptions = {
+  origin: "https://h7swlps6-5173.usw3.devtunnels.ms", // El dominio del FRONTEND real
+  methods: ["GET", "POST"],
+};
+
 app.use(express.json()); // Para poder leer datos JSON enviados en la solicitud
 app.use(express.static(path.join(__dirname, "src"))); // Servir archivos estáticos
-app.use(cors()); // Habilitar CORS si lo necesitas
+app.use(cors(corsOptions));
 
 // Definir la ruta POST para enviar el correo
 app.post("/send-email", async (req, res) => {
